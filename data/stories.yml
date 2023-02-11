@@ -1,0 +1,15 @@
+version: "3.1"
+
+stories:
+
+- story: salutation path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: ask information about irembo path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: irembo_info
+  - action: utter_irembo_info

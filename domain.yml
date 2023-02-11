@@ -1,0 +1,114 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inappropriate
+- irembo_info
+- national_id
+- temporary_driving_license_number
+- permanent_driving_license_date
+- permanent_driving_license_category
+- permanent_driving_license_district
+- permanent_driving_license_location
+- information_about_permanent_driving_license
+- registering_for_permanent_driving_license
+
+entities:
+- id
+- temporary_driving_license_number_slot
+- permanent_driving_license_date_slot
+- permanent_driving_license_car_category_slot
+- permanent_driving_license_district_slot
+- permanent_driving_license_location
+
+slots:
+  id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: id
+  temporary_driving_license_number_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: temporary_driving_license_number_slot
+  permanent_driving_license_date_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: permanent_driving_license_date_slot
+  permanent_driving_license_car_category_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: permanent_driving_license_car_category_slot
+  permanent_driving_license_district_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: permanent_driving_license_district_slot
+  permanent_driving_license_location:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: permanent_driving_license_location
+
+forms:
+  permanent_driving_license_form:
+    required_slots:
+    - id
+    - temporary_driving_license_number_slot
+    - permanent_driving_license_date_slot
+    - permanent_driving_license_car_category_slot
+    - permanent_driving_license_district_slot
+    - permanent_driving_license_location
+
+responses:
+  utter_greet:
+  - text: Bite! Ni gute nagufasha?
+  utter_cheer_up:
+  - text: Hano hari agafoto kagufasha!
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Harubwo byagufashije?
+  utter_happy:
+  - text: Neza, wakomeza!
+  utter_goodbye:
+  - text: Sawa, mugire umunsi mwiza
+  utter_iamabot:
+  - text: Ndi irobo rikozwe muri Rasa.
+  utter_please_rephrase:
+  - text: Mutwihanganire, ushobora kubisubiramo mu bundi buryo?
+  utter_irembo_info:
+  - text: Irembo ni system yubatswe n'abanyarwanda kugira ifashe abaturage kubona service za leta byihuse. Andi makuru wayakura hano https://irembo.gov.rw/home/citizen/all_services
+  utter_ask_id:
+  - text: Indangamuntu yawe ni iyihe
+  utter_ask_temporary_driving_license_number_slot:
+  - text: waduha numero y'uruhushya rw'agateganyo yawe
+  utter_ask_permanent_driving_license_date_slot:
+  - text: wahitamo itariki ushaka gukorera ikizamini
+  utter_ask_permanent_driving_license_car_category_slot:
+  - text: urashaka gukorera iyihe category y'ikizamini
+  utter_ask_permanent_driving_license_district_slot:
+  - text: urashaka gukorera mu kahe karere
+  utter_ask_permanent_driving_license_location:
+  - text: hitamo aho uzayikorera
+  utter_submit_permanent_driving_license_form:
+  - text: indangamuntu yawe ni {indangamuntu}
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+- action_information_about_permanent_driving_license
+- utter_ask_id
+- utter_ask_temporary_driving_license_number_slot
+- utter_ask_permanent_driving_license_date_slot
+- utter_ask_permanent_driving_license_car_category_slot
+- utter_ask_permanent_driving_license_district_slot
+- utter_ask_permanent_driving_license_location
+- utter_submit_permanent_driving_license_form

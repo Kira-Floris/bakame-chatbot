@@ -1,0 +1,401 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - muraho ?
+    - amahoro !
+    - mwiriwe ?
+    - mwaramutse
+    - salama!
+    - bite
+    - mukomere
+    - bwakeye
+    - Bite
+    - Amakuru
+    - waramutse
+    - waraye
+    - uraho
+    - muraho
+    - kirigute se
+    - Yooo
+    - Komera cyane
+    - Mukomere
+    - Mwaramukanye Imana
+    - Mumeze mute
+    - Mwiriwe
+    - Muramuke
+    - Murabeho
+    - Kagire Imana
+    - Ndumiwe
+    - bite man
+    - kiri gute
+    - amakuru yawe
+    - umeze neza
+    - Yewe
+    - Bite sha
+    - Bite mwa
+    - Komera komera
+    - Urinde
+    - Twavugana
+    - Reka tuvugane
+    - Umeze ute se?
+    - Uzi kuvuga
+    - Bite se aho
+    - Muraturusha iki?
+    - Nakubaza
+    - Twabababza
+    - Umva
+    - Igisa ngo gute se?
+    - umusa
+    - Eyoooo
+    - Ni iki gishya se?
+    - Muduhishiye iki?
+    - Ni ibiki bijya mbere se?
+    - Weeee
+    - Data weeeee
+    - Umva man
+    - Nagusuhuzaga
+    - Umva sha
+    - Muraho yemwe
+    - Abahano
+    - Abahano bite
+    - Murakoma
+    - Ese bite ra
+    - Mbwira
+    - Reka nkubaze
+- intent: goodbye
+  examples: |
+    - turasubire
+    - tuzasubira
+    - nahubutaha
+    - ijoro ryiza
+    - umunsi mwiza
+    - mwirirwe
+    - narangije
+    - nasoje
+    - murabeho
+    - murakoze
+    - peace
+    - Umunsi mwiza
+    - Ijoro ryiza
+    - Ugire umunsi mwiza
+    - Urabeho
+    - Ndagiye
+    - Urabeho!
+    - turi kumwe
+    - ciao
+    - urabeho
+    - bye
+    - bye bye
+    - bayi wa robot
+    - reka tubeturangirije hano
+    - nuko bayi
+    - sawa turi kumwe
+    - sawa man ni ahubutaha
+    - Gusezera - Ndagusezeye
+    - Urabeho rasa Icyahanzwe
+    - Yego urabeho
+    - Yegoo urabeho
+    - Tubonane nyuma
+    - Tubonane
+    - bye,Tubonane. Urabeho
+    - Tuvugane nawe nyuma
+    - Urare aharyana
+    - Sohoka
+    - Funga iki kiganiro
+    - reka ngende
+    - nciyeho
+    - ndagiye
+    - ndigendeye
+    - reka nigendere
+    - sawa bayi
+    - reka ngucike
+    - reka dusoze ikiganiro
+    - Bye
+- intent: affirm
+  examples: |
+    - yego
+    - nibyo
+    - birumvikana
+    - nibyo rwose
+    - Ego
+    - eeh !
+    - yigo
+    - Yego
+    - y
+    - Rwose
+    - ibyo byumvikana neza
+    - Nibyo
+    - yego nyamuneka
+    - yeah
+    - yup
+    - ok
+    - Biryoshye
+    - cool
+    - okay
+    - Yego nabikoze
+    - Yes
+    - Emera
+    - Byiza rwose
+    - Byiza
+    - Byiza cyane
+    - Ndabyemeye
+    - Ndabyemeye.
+    - Ndabyemera
+    - ni fresh
+    - ntaribi
+    - ok ok
+    - Yego reka duangire
+    - Yego!
+    - Urasabwa
+    - Byaba byiza
+    - Yea
+    - Yeah
+    - Yego nibyo
+    - Yep yep
+    - Yego nibyiza
+    - Yep!
+    - Yep
+    - Yesssssssss
+    - Yego ndabikora
+    - Yego ndakwinginze
+    - Yego ndakwinginze!
+    - Yego, Ndabyemeye
+    - Yeeego
+    - Naremeye
+    - Narabyemeye
+    - Rwose, yego
+    - Biratangaje
+    - Kwemeza
+    - Genda
+    - Komeza
+    - Yesh
+    - Yess
+    - yego sha
+    - yego di
+    - yego nuko
+    - aho sha
+    - yeeeeee
+    - yego.
+    - ndemeye
+    - uko
+- intent: deny
+  examples: |
+    - no
+    - hoya
+    - oya
+    - sibyo
+    - wapi
+    - ntibibaho
+    - ntibyumvikana
+    - reka
+    - rekada
+    - hoya se kandi
+    - hoya se kdi!
+    - naaa
+    - apana
+    - oy
+    - hoyaaaa
+    - Oya
+    - No
+    - n
+    - Nta na rimwe
+    - nah
+    - nope
+    - Simbitekereza
+    - Simbyemera
+    - Mfite ubwoba, oya
+    - Mbabarira, oya
+    - Sikuriya
+    - wapi sha
+    - Ntago aribyo rwose
+    - sibyo rwose
+    - Ntago aribyo
+    - Mfite ubwoba sibyo
+    - Mumbabarire, sibyo rwose
+    - mumbabarire, nta kundi byagenda
+    - Sincaka
+    - Sinshaka kuguha
+    - Sinshaka kuvuga
+    - Sinshaka kubivuga
+    - Ntabwo ngiye kuguha
+    - wapi man
+    - reka sha
+    - Oya ntago nshaka ibi
+    - shwi da
+    - Nta na kimwe
+    - Ntubitekerzo
+    - Oya urakoze
+    - Oya, si byo.
+    - ashwi da
+    - shwi
+    - reka da
+    - reka reka
+    - oya da
+    - oya ibi sibyo nshaka
+    - ntabyo nshaka
+    - sinkeka
+    - simbizi
+    - ntabyonzi
+    - ntabyo nzi
+    - ntabwo mbizi
+    - ntabwombizi
+    - sinemera
+    - ndabyanze
+    - ndaze
+    - ndiyangiye
+    - sinibaza
+    - simbetekereza
+    - oya have
+    - have have
+    - have
+    - bireke
+    - byihorere
+    - ndanze
+    - simbishaka
+    - si nshaka
+    - sindikubishaka
+    - sinemeye
+    - ndahakanye
+    - ntabwo nishimiye ibisubizo byawe
+    - ntabyawe
+    - ntakigenda cyawe
+    - ntacyo umaze
+- intent: inappropriate
+  examples: |
+    - uri igicucu!
+    - urasaze!
+    - uri umusazi!
+    - uri igicucu
+    - ugomba kuba umusazi
+    - Ntekereza ko wasaze
+    - ugomba kuba umuswa
+    - Ntekereza ko uri igicucu
+    - ibicucu
+    - ibisazi
+    - uri umusazi
+    - uri igicucu cyane
+    - urasaze cyane
+    - uri igicucu?
+    - uri igituba?
+    - uri igituba gusa
+    - igituba
+    - kijyeho
+    - f ** k u
+    - urasaze?
+    - wa gicucu we
+    - umuswa
+    - foooooool
+    - uri umuswa
+    - uri feke
+    - uri idage
+- intent: bot_challenge
+  examples: |
+    - uri irobo?
+    - uri umuntu?
+    - ndimo mvugana na irobo?
+    - ndimo mvugana numuntu?
+    - uyu ni umuntu nyawe?
+    - iyi ni irobo?
+    - uri umufasha?
+    - ndimo mvugana numuntu ukora?
+    - Ndi ku mukoresha wa irobo?
+    - ndi ku kiremwa muntu?
+    - uyu ni umuntu?
+    - iyi ni asistant ya AI?
+    - Wowe uri irobo cyangwa umuntu?
+    - uri nde?
+    - mbwira ibyawe
+    - urumva iki?
+    - uri umunyakuri?
+    - uri virtual?
+    - uri ai?
+    - ntabwo uri irobo
+    - uri ikiganiro
+    - uri rasa irobo?
+    - uri igihangano nyacyo?
+    - uri irobo
+    - uri ai
+    - uri ibihimbano
+    - uri ubwenge bwubuhanga
+    - uri umunyakuri
+    - uri mubyukuri
+    - uzi neza ko uri irobo?
+    - irobo?
+- intent: irembo_info
+  examples: |
+    - irembo ni iki?
+    - irembo bivuze iki?
+    - ni iki wambwira ku irembo?
+    - irembo
+    - wambwiraho gato ku irembo
+    - irembo yakozwe nande?
+    - iyi sisitemu ni iyiki?
+    - amakuru ku irembo?
+- intent: information_about_permanent_driving_license
+  examples: |
+    - Bisaba iki kubona uruhushya rwa burundu?
+    - Ni gute nabona uruhushya rwo gutwara ibinyabiziga
+    - Gukorera perime bisaba iki?
+    - nkeneye permis de conduire
+    - ndifuza perimi
+    - biyandikisha gute gukorera perimi
+    - mufite amakuru ajyanye no gukorera permis
+    - ko nshaka amakuru ajyanye no gukorera permis
+
+- intent: registering_for_permanent_driving_license
+  examples: |
+    - Ndashaka kwiyandikisha gukorera uruhushya rwo gutwara ibinyabizaga
+    - mwamfasha kwiyandikisha gukorera ikizamini cya perime?
+    - ndasaba gukorera icyangobwa cyo gutwara
+    - ndifuza kwiyandikisha gukorera icyangombwo cyo gutwara cya burundu
+    - ndifuza kwiyandikisha gukorera permis
+    - ndashaka kwiyandikisha kugira ngo mbone uruhushya rwo gutwara ibinyabiziga
+    - Ni gute nakwiyandikisha kubona uruhushya rwo gukorera permis
+- intent: national_id
+  examples: |
+    - irangamuntu yanjye ni [1994800317030130125052010](id)
+    - indangamuntu yanjye ni [1994800317030130125052010](id)
+    - id yanjye ni [1994800317030130125052010](id)
+    - id ni [1994800317030130125052010](id)
+    - national id yanjye ni [1994800317030130125052010](id)
+    - [1994800317030130125052010](id) niyo id yanjye
+    - [1994800317030130125052010](id) niyo ndangamuntu yanjye
+    - imibare iri ku indangamuntu ni [1994800317030130125052010](id)
+    - imibare iri kuri id ni [1994800317030130125052010](id)
+    - indangamuntu yanjye ni [1199980126239080](id)
+
+- intent: temporary_driving_license_number
+  examples: |
+    - nomero y'uruhushya rw'agateganyo yanjye ni [KJ3KJK13LKL24JK09023400](temporary_driving_license_number_slot)
+    - nomero ni [KJ3KJKIUHEW223L24JK08039400](temporary_driving_license_number_slot)
+    - iyi niyo numero yanjye [KJ3KUIWELKL24JK0890920](temporary_driving_license_number_slot)
+    - [KJ3KASDO9KL24J182019239400](temporary_driving_license_number_slot)
+    - [KJ3KJK13LKL24JK08039400](temporary_driving_license_number_slot) niyo nomero y'agateganyo yanjye
+    - nomero y'agateganyo ni [KJ3KJK13LKHK238039400](temporary_driving_license_number_slot)
+
+
+- intent: permanent_driving_license_date
+  examples: |
+    - ndashaka gukora kuri [2023-10-13](permanent_driving_license_date_slot)
+    - nzakora kuri [2023-10-13](permanent_driving_license_date_slot)
+    - ndumva nakora kuri [2023-10-13](permanent_driving_license_date_slot)
+    - ndifuza tariki [2023-10-13](permanent_driving_license_date_slot)
+
+- intent: permanent_driving_license_category
+  examples: |
+    - icyiciro cy'uruhushya nifuza ni [A](permanent_driving_license_car_category_slot)
+    - ndashaka gukora ikiciro cya [B](permanent_driving_license_car_category_slot)
+    - kategori nifuza ni [A+](permanent_driving_license_car_category_slot)
+    - nzakora [A](permanent_driving_license_car_category_slot)
+    - [C](permanent_driving_license_car_category_slot)
+
+- intent: permanent_driving_license_district
+  examples: |
+    - ndashaka gukorera mu karere ka [kicukiro](permanent_driving_license_district_slot)
+    - akarere ka [nyagatare](permanent_driving_license_district_slot)
+    - nzakorera muri [gasabo](permanent_driving_license_district_slot)
+
+- intent: permanent_driving_license_location
+  examples: |
+    - [UMUGANDA Stadium NYH](permanent_driving_license_location_slot)

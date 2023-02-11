@@ -1,0 +1,33 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provisional_driving_license\"}}]": "provisional_driving_license_paper_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provisional_driving_license\"}}, {\"active_loop\": {\"name\": \"provisional_driving_license_paper_form\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}, \"user\": {\"intent\": \"provisional_driving_license\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"irembo_info\"}}]": "utter_irembo_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"irembo_info\"}}, {\"prev_action\": {\"action_name\": \"utter_irembo_info\"}, \"user\": {\"intent\": \"irembo_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}}]": "utter_submit_provisional_driving_license_paper_form",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit_provisional_driving_license_paper_form\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"provisional_driving_license_paper_form\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}, \"user\": {\"intent\": \"provisional_driving_license\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "handling active loops and forms - provisional_driving_license_paper_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"provisional_driving_license_paper_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit_provisional_driving_license_paper_form\"}}]"
+    ]
+  }
+}

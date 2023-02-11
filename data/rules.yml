@@ -1,0 +1,42 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: irembo information answering
+  steps:
+  - intent: irembo_info
+  - action: utter_irembo_info
+
+- rule: Ask user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Information about Permanent Driving License
+  steps:
+  - intent: information_about_permanent_driving_license
+  - action: action_information_about_permanent_driving_license
+
+- rule: Registering for Permanent Driving License
+  steps:
+  - intent: registering_for_permanent_driving_license
+  - action: permanent_driving_license_form
+  - active_loop: permanent_driving_license_form
+
+- rule: Submit Registration for Permanent Driving License
+  condition:
+  - active_loop: permanent_driving_license_form
+  steps:
+  - action: permanent_driving_license_form
+  - active_loop: null
+  - action: utter_submit_permanent_driving_license_form

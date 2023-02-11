@@ -1,0 +1,9 @@
+{
+    "permanent_driving_license":{
+        "title":"Permanent Driving License",
+        "description":"Iyi serivisi ifasha abayikoresha kwiyandikisha gukora ikizamini cy''uruhushya rwa burundu rwo gutwara ikinyabiziga.Akamaro k''iki kizamini ni ugusuzuma ubushobozi bw''umuntu bwo gutwara ikinyabiziga. Iki kizamini gikorwa n''umuntu wujuje nibura imyaka 18.",
+        "processingTime": "1 day",
+        "price":"kirahinduka",
+        "serviceProvider":"RNP"
+    }
+}
