@@ -41,6 +41,12 @@ class GetInformation:
             return x
         except:
             return notFoundMessage
+        
+def buttonsToActionList(data):
+    buttons = []
+    for i in data:
+        buttons.append({i:i})
+    return buttons
 
 class ActionHelloWorld(Action):
     def name(self) -> Text:
@@ -65,3 +71,65 @@ class ActionInformationAboutPermanentDrivingLicense(Action):
         information_description = information.get_key('description')
         dispatcher.utter_message(information_description)
         return []
+    
+class ActionPermanentDrivingLicenseDate(Action):
+    def name(self):
+        return 'action_ask_permanent_driving_license_date_slot'
+    
+    def run(self,
+            dispatcher:CollectingDispatcher, 
+            tracker:Tracker, 
+            domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
+        information = GetInformation('permanent_driving_license')
+        dates = information.get_key('slots')['permanent_driving_license_date_choices']
+        buttons = buttonsToActionList(dates)
+        dispatcher.utter_message(text="murashaka gukora ku wuhe munsi",buttons=buttons)
+        return []
+    
+class ActionPermanentDrivingLicenseCarCategory(Action):
+    def name(self):
+        return 'action_ask_permanent_driving_license_car_category_slot'
+    
+    def run(self,
+            dispatcher:CollectingDispatcher, 
+            tracker:Tracker, 
+            domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
+        information = GetInformation('permanent_driving_license')
+        car_categories = information.get_key('slots')['permanent_driving_license_car_category_choices']
+        buttons = buttonsToActionList(car_categories)
+        dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
+        return []
+    
+class ActionPermanentDrivingLicenseDistrict(Action):
+    def name(self):
+        return 'action_ask_permanent_driving_license_district_slot'
+    
+    def run(self,
+            dispatcher:CollectingDispatcher, 
+            tracker:Tracker, 
+            domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
+        information = GetInformation('permanent_driving_license')
+        districts = [item['name'] for item in information.get_key('slots')['permanent_driving_license_district_choices']]
+        buttons = buttonsToActionList(districts)
+        dispatcher.utter_message(text="murashaka gukorera mu kahe karere",buttons=buttons)
+        return []
+    
+class ActionPermanentDrivingLicenseLocation(Action):
+    def name(self):
+        return 'action_ask_permanent_driving_license_car_category_slot'
+    
+    def run(self,
+            dispatcher:CollectingDispatcher, 
+            tracker:Tracker, 
+            domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
+        district_slot = tracker.get_slot('permanent_driving_license_district_slot')
+        information = GetInformation('permanent_driving_license')
+        locations = []
+        for item in information.get_key('slots')['permanent_driving_license_district_choices']:
+            if item['name']==district_slot:
+                locations.extend(item['locations'])
+                break
+        buttons = buttonsToActionList(locations)
+        dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
+        return []
+    

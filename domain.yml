@@ -59,9 +59,9 @@ slots:
 forms:
   permanent_driving_license_form:
     required_slots:
-    - id
-    - temporary_driving_license_number_slot
-    - permanent_driving_license_date_slot
+    # - id
+    # - temporary_driving_license_number_slot
+    # - permanent_driving_license_date_slot
     - permanent_driving_license_car_category_slot
     - permanent_driving_license_district_slot
     - permanent_driving_license_location
@@ -107,8 +107,8 @@ actions:
 - action_information_about_permanent_driving_license
 - utter_ask_id
 - utter_ask_temporary_driving_license_number_slot
-- utter_ask_permanent_driving_license_date_slot
-- utter_ask_permanent_driving_license_car_category_slot
-- utter_ask_permanent_driving_license_district_slot
-- utter_ask_permanent_driving_license_location
-- utter_submit_permanent_driving_license_form
+- action_ask_permanent_driving_license_date_slot
+- action_ask_permanent_driving_license_car_category_slot
+- action_ask_permanent_driving_license_district_slot
+- action_ask_permanent_driving_license_location
+- action_submit_permanent_driving_license_form

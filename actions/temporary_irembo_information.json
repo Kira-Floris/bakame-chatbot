@@ -4,6 +4,24 @@
         "description":"Iyi serivisi ifasha abayikoresha kwiyandikisha gukora ikizamini cy''uruhushya rwa burundu rwo gutwara ikinyabiziga.Akamaro k''iki kizamini ni ugusuzuma ubushobozi bw''umuntu bwo gutwara ikinyabiziga. Iki kizamini gikorwa n''umuntu wujuje nibura imyaka 18.",
         "processingTime": "1 day",
         "price":"kirahinduka",
-        "serviceProvider":"RNP"
+        "serviceProvider":"RNP",
+        "slots":{
+            "permanent_driving_license_date_choices":["2023-01-23","2023-02-01","2023-02-15"],
+            "permanent_driving_license_car_category_choices":["A","B","C","D"],
+            "permanent_driving_license_district_choices":[
+                {
+                    "name":"Kicukiro",
+                    "locations":["kicukiro 1","kicukiro 2","kicukiro 3"]
+                },
+                {
+                    "name":"nyarugenge",
+                    "locations":["nyarugenge 1","nyarugenge 2","nyarugenge 3"]
+                },
+                {
+                    "name":"gasabo",
+                    "locations":["gasabo 1","gasabo 2","gasabo 3"]
+                }
+            ]
+        }
     }
 }
