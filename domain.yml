@@ -6,6 +6,7 @@ intents:
 - goodbye
 - greet
 - inappropriate
+- stop_form
 - irembo_info
 - national_id
 - temporary_driving_license_number
@@ -62,7 +63,7 @@ forms:
     # - id
     # - temporary_driving_license_number_slot
     # - permanent_driving_license_date_slot
-    - permanent_driving_license_car_category_slot
+    # - permanent_driving_license_car_category_slot
     - permanent_driving_license_district_slot
     - permanent_driving_license_location
 
@@ -88,14 +89,14 @@ responses:
   - text: Indangamuntu yawe ni iyihe
   utter_ask_temporary_driving_license_number_slot:
   - text: waduha numero y'uruhushya rw'agateganyo yawe
-  utter_ask_permanent_driving_license_date_slot:
-  - text: wahitamo itariki ushaka gukorera ikizamini
-  utter_ask_permanent_driving_license_car_category_slot:
-  - text: urashaka gukorera iyihe category y'ikizamini
-  utter_ask_permanent_driving_license_district_slot:
-  - text: urashaka gukorera mu kahe karere
-  utter_ask_permanent_driving_license_location:
-  - text: hitamo aho uzayikorera
+  # utter_ask_permanent_driving_license_date_slot:
+  # - text: wahitamo itariki ushaka gukorera ikizamini
+  # utter_ask_permanent_driving_license_car_category_slot:
+  # - text: urashaka gukorera iyihe category y'ikizamini
+  # utter_ask_permanent_driving_license_district_slot:
+  # - text: urashaka gukorera mu kahe karere
+  # utter_ask_permanent_driving_license_location:
+  # - text: hitamo aho uzayikorera
   utter_submit_permanent_driving_license_form:
   - text: indangamuntu yawe ni {indangamuntu}
 
@@ -110,5 +111,5 @@ actions:
 - action_ask_permanent_driving_license_date_slot
 - action_ask_permanent_driving_license_car_category_slot
 - action_ask_permanent_driving_license_district_slot
-- action_ask_permanent_driving_license_location
+- action_ask_permanent_driving_license_location_slot
 - action_submit_permanent_driving_license_form

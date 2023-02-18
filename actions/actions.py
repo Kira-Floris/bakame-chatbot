@@ -97,7 +97,7 @@ class ActionPermanentDrivingLicenseCarCategory(Action):
         information = GetInformation('permanent_driving_license')
         car_categories = information.get_key('slots')['permanent_driving_license_car_category_choices']
         buttons = buttonsToActionList(car_categories)
-        dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
+        dispatcher.utter_message(text="murashaka gukorera iyihe kategori yimodoka",buttons=buttons)
         return []
     
 class ActionPermanentDrivingLicenseDistrict(Action):
@@ -116,12 +116,13 @@ class ActionPermanentDrivingLicenseDistrict(Action):
     
 class ActionPermanentDrivingLicenseLocation(Action):
     def name(self):
-        return 'action_ask_permanent_driving_license_car_category_slot'
+        return 'action_ask_permanent_driving_license_location_slot'
     
     def run(self,
             dispatcher:CollectingDispatcher, 
             tracker:Tracker, 
             domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
+        print('hello world')
         district_slot = tracker.get_slot('permanent_driving_license_district_slot')
         information = GetInformation('permanent_driving_license')
         locations = []

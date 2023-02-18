@@ -322,6 +322,16 @@ nlu:
     - uri mubyukuri
     - uzi neza ko uri irobo?
     - irobo?
+
+- intent: stop_form
+  examples: |
+    - ndashaka guhagarika kuzuza
+    - nisubiyeho
+    - dutangize form
+    - ndashaka guhindura amakuru
+    - dusibe byose
+    - duhagarike kuzuza
+    
 - intent: irembo_info
   examples: |
     - irembo ni iki?
@@ -393,7 +403,7 @@ nlu:
 - intent: permanent_driving_license_district
   examples: |
     - ndashaka gukorera mu karere ka [kicukiro](permanent_driving_license_district_slot)
-    - akarere ka [nyagatare](permanent_driving_license_district_slot)
+    - akarere ka [nyarugenge](permanent_driving_license_district_slot)
     - nzakorera muri [gasabo](permanent_driving_license_district_slot)
 
 - intent: permanent_driving_license_location
