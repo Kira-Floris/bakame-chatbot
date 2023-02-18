@@ -39,31 +39,27 @@ slots:
   permanent_driving_license_date_slot:
     type: text
     mappings:
-    - type: from_entity
-      entity: permanent_driving_license_date_slot
+    - type: custom
   permanent_driving_license_car_category_slot:
     type: text
     mappings:
-    - type: from_entity
-      entity: permanent_driving_license_car_category_slot
+    - type: custom
   permanent_driving_license_district_slot:
     type: text
     mappings:
-    - type: from_entity
-      entity: permanent_driving_license_district_slot
+    - type: custom
   permanent_driving_license_location:
     type: text
     mappings:
-    - type: from_entity
-      entity: permanent_driving_license_location
+    - type: custom
 
 forms:
   permanent_driving_license_form:
     required_slots:
-    # - id
-    # - temporary_driving_license_number_slot
-    # - permanent_driving_license_date_slot
-    # - permanent_driving_license_car_category_slot
+    - id
+    - temporary_driving_license_number_slot
+    - permanent_driving_license_date_slot
+    - permanent_driving_license_car_category_slot
     - permanent_driving_license_district_slot
     - permanent_driving_license_location
 
