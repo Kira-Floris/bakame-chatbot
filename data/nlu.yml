@@ -355,13 +355,14 @@ nlu:
 
 - intent: registering_for_permanent_driving_license
   examples: |
-    - Ndashaka kwiyandikisha gukorera uruhushya rwo gutwara ibinyabizaga
+    - Ndashaka kwiyandikisha gukorera uruhushya rwo gutwara ibinyabiziga
     - mwamfasha kwiyandikisha gukorera ikizamini cya perime?
     - ndasaba gukorera icyangobwa cyo gutwara
     - ndifuza kwiyandikisha gukorera icyangombwo cyo gutwara cya burundu
     - ndifuza kwiyandikisha gukorera permis
     - ndashaka kwiyandikisha kugira ngo mbone uruhushya rwo gutwara ibinyabiziga
     - Ni gute nakwiyandikisha kubona uruhushya rwo gukorera permis
+
 - intent: national_id
   examples: |
     - irangamuntu yanjye ni [1994800317030130125052010](id)
@@ -387,10 +388,16 @@ nlu:
 
 - intent: permanent_driving_license_date
   examples: |
-    - ndashaka gukora kuri [2023-10-13](permanent_driving_license_date_slot)
-    - nzakora kuri [2023-10-13](permanent_driving_license_date_slot)
-    - ndumva nakora kuri [2023-10-13](permanent_driving_license_date_slot)
-    - ndifuza tariki [2023-10-13](permanent_driving_license_date_slot)
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-12-21"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-04-15"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-03-05"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-03-12"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-05-11"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-06-02"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-07-23"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-08-31"}
+    - /permanent_driving_license_date{"permanent_driving_license_date_slot":"2022-09-15"}
+
 
 - intent: permanent_driving_license_category
   examples: |

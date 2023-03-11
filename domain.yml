@@ -11,9 +11,9 @@ intents:
 - national_id
 - temporary_driving_license_number
 - permanent_driving_license_date
-- permanent_driving_license_category
-- permanent_driving_license_district
-- permanent_driving_license_location
+# - permanent_driving_license_category
+# - permanent_driving_license_district
+# - permanent_driving_license_location
 - information_about_permanent_driving_license
 - registering_for_permanent_driving_license
 
@@ -39,7 +39,8 @@ slots:
   permanent_driving_license_date_slot:
     type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: permanent_driving_license_date_slot
   permanent_driving_license_car_category_slot:
     type: text
     mappings:
@@ -56,8 +57,8 @@ slots:
 forms:
   permanent_driving_license_form:
     required_slots:
-    - id
-    - temporary_driving_license_number_slot
+    # - id
+    # - temporary_driving_license_number_slot
     - permanent_driving_license_date_slot
     - permanent_driving_license_car_category_slot
     - permanent_driving_license_district_slot

@@ -1,0 +1,47 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stop_form\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}}]": "utter_submit_permanent_driving_license_form",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit_permanent_driving_license_form\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_please_rephrase",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_please_rephrase\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}]": "action_information_about_permanent_driving_license",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}, {\"prev_action\": {\"action_name\": \"action_information_about_permanent_driving_license\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"irembo_info\"}}]": "utter_irembo_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"irembo_info\"}}, {\"prev_action\": {\"action_name\": \"utter_irembo_info\"}, \"user\": {\"intent\": \"irembo_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"registering_for_permanent_driving_license\"}}]": "permanent_driving_license_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"registering_for_permanent_driving_license\"}}, {\"active_loop\": {\"name\": \"permanent_driving_license_form\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}, \"user\": {\"intent\": \"registering_for_permanent_driving_license\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "permanent_driving_license_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"permanent_driving_license_form\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}, \"user\": {\"intent\": \"registering_for_permanent_driving_license\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_please_rephrase\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit_permanent_driving_license_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"registering_for_permanent_driving_license\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "handling active loops and forms - permanent_driving_license_form - action_listen",
+      "predicting default action with intent session_start",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"permanent_driving_license_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}, {\"prev_action\": {\"action_name\": \"action_information_about_permanent_driving_license\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stop_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"information_about_permanent_driving_license\"}}]",
+      "handling active loops and forms - permanent_driving_license_form"
+    ]
+  }
+}

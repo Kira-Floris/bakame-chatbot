@@ -11,7 +11,7 @@ from typing import Any, Text, Dict, List
 import json
 
 from rasa_sdk import Action, Tracker
-from rasa_sdk.forms import FormAction
+# from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 
 irembo_information_json = 'actions/temporary_irembo_information.json'
@@ -43,23 +43,11 @@ class GetInformation:
         except:
             return notFoundMessage
         
-def buttonsToActionList(data):
+def buttonsToActionList(data, slot, entity):
     buttons = []
     for i in data:
-        buttons.append({i:i})
+        buttons.append({"title":i,"payload":"/"+slot+"{\""+entity+"\": \""+i+"\"}"})
     return buttons
-
-class ActionHelloWorld(Action):
-    def name(self) -> Text:
-        return "action_hello_world"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(text="Hello World!")
-
-        return []
     
 class ActionInformationAboutPermanentDrivingLicense(Action):
     def name(self):
@@ -83,7 +71,7 @@ class ActionPermanentDrivingLicenseDate(Action):
             domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
         information = GetInformation('permanent_driving_license')
         dates = information.get_key('slots')['permanent_driving_license_date_choices']
-        buttons = buttonsToActionList(dates)
+        buttons = buttonsToActionList(dates,"permanent_driving_license_date","permanent_driving_license_date_slot")
         dispatcher.utter_message(text="murashaka gukora ku wuhe munsi",buttons=buttons)
         return []
     
@@ -134,24 +122,3 @@ class ActionPermanentDrivingLicenseLocation(Action):
         buttons = buttonsToActionList(locations)
         dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
         return []
-    
-# class FormPermanentDrivingLicense(FormAction):
-#     def name(self)->Text:
-#         return 'permanent_driving_license_form_test'
-    
-#     @staticmethod
-#     def required_slots(tracker:Tracker)->List[Text]:
-#         return [
-#             'id',
-#             'temporary_driving_license_number_slot',
-#             'permanent_driving_license_date_slot',
-#             'permanent_driving_license_car_category_slot',
-#             'permanent_driving_license_district_slot',
-#             'permanent_driving_license_location'
-#         ]
-#     def slot_mappings(self)->Dict[Text, Union[Dict, List[Dict]]]:
-#         return {
-#             "id": [self.from_entity(entity="id")],
-#             "temporary_driving_license_number_slot": [self.from_entity(entity="temporary_driving_license_number_slot")],
-#             "permanent_driving_license_date_slot": [self.]
-#         }
