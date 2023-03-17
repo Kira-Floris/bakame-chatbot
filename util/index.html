@@ -2,57 +2,32 @@
 <html>
   <head>
 <title>Bakame-Bot</title>
+
   </head>
  
 <body style=text-align:center>
   <p style=text-align:center><h1 >Welcome to  Bakame chat-bot</h1></p>
-    
- 
-    <style>
-.rw-conversation-container .rw-header{background-color:  #222211;} 
-.rw-conversation-container .rw-close-function{background-color:  #222211;} 
-.rw-launcher{background-color: #222211;}
-.rw-conversation-container .rw-messages-container .rw-message .rw-client{background-color: #222211;} 
-    </style>
- 
- 
-  <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_jyxnt8gq.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px; align-items: center; margin-left: 580px;margin-top: 100px;"  loop  autoplay></lottie-player>
-  -->
- 
-    <script>
-    localStorage.clear();
-    !(function () {
- 
-        let e = document.createElement("script"),
-          t = document.head || document.getElementsByTagName("head")[0];
-        (e.src =
-          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
-          // Replace 1.x.x with the version that you want
-          (e.async = !0),
-          (e.onload = () => {
-            //window.localstorage.clear();
-            window.WebChat.default(
-              {
- 
-                <!-- initPayload:'/greet',   -->
-                customData: { language: "en" },
-                socketUrl: "http://localhost:5005/webhooks/rest/webhook",
-                title:"Bakame Bot",
-                subtitle:"Developed by Mbaza NLP Community",
-                showFullScreenButton: true,
-                showMessageDate: true
-              },
-              null
-            );
- 
-          }),
-          t.insertBefore(e, t.firstChild);
- 
-      })();
- 
-      </script>
- 
+
+  <script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+    (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+      // Replace 1.x.x with the version that you want
+      (e.async = !0),
+      (e.onload = () => {
+        window.WebChat.default(
+          {
+            customData: { language: "en" },
+            socketUrl: "http://localhost:5005",
+            // add other props here
+          },
+          null
+        );
+      }),
+      t.insertBefore(e, t.firstChild);
+  })();
+  </script>
  
 </body>
 </html>

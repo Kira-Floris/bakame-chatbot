@@ -85,7 +85,7 @@ class ActionPermanentDrivingLicenseCarCategory(Action):
             domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
         information = GetInformation('permanent_driving_license')
         car_categories = information.get_key('slots')['permanent_driving_license_car_category_choices']
-        buttons = buttonsToActionList(car_categories)
+        buttons = buttonsToActionList(car_categories, "permanent_driving_license_category", "permanent_driving_license_car_category_slot")
         dispatcher.utter_message(text="murashaka gukorera iyihe kategori yimodoka",buttons=buttons)
         return []
     
@@ -99,7 +99,7 @@ class ActionPermanentDrivingLicenseDistrict(Action):
             domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
         information = GetInformation('permanent_driving_license')
         districts = [item['name'] for item in information.get_key('slots')['permanent_driving_license_district_choices']]
-        buttons = buttonsToActionList(districts)
+        buttons = buttonsToActionList(districts, "permanent_driving_license_district", "permanent_driving_license_district_slot")
         dispatcher.utter_message(text="murashaka gukorera mu kahe karere",buttons=buttons)
         return []
     
@@ -111,7 +111,6 @@ class ActionPermanentDrivingLicenseLocation(Action):
             dispatcher:CollectingDispatcher, 
             tracker:Tracker, 
             domain: Dict[Text,Any]) -> List[Dict[Text,Any]]:
-        print('hello world')
         district_slot = tracker.get_slot('permanent_driving_license_district_slot')
         information = GetInformation('permanent_driving_license')
         locations = []
@@ -119,6 +118,32 @@ class ActionPermanentDrivingLicenseLocation(Action):
             if item['name']==district_slot:
                 locations.extend(item['locations'])
                 break
-        buttons = buttonsToActionList(locations)
+        buttons = buttonsToActionList(locations, "permanent_driving_license_location", "permanent_driving_license_location_slot")
         dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
+        return []
+    
+class ActionSubmitPermanentDrivingLicenseForm(Action):
+    def name(self):
+        return 'action_submit_permanent_driving_license_form'
+    
+    def run(
+        self,
+        dispatcher:CollectingDispatcher,
+        tracker:Tracker,
+        domain: Dict[Text,Any]
+    ) -> List[Dict[Text, Any]]:
+        id_ = tracker.get_slot('id')
+        temporary_driving_license_number_slot = tracker.get_slot('temporary_driving_license_number_slot')
+        permanent_driving_license_date_slot = tracker.get_slot('permanent_driving_license_date_slot')
+        permanent_driving_license_car_category_slot = tracker.get_slot('permanent_driving_license_car_category_slot')
+        permanent_driving_license_district_slot = tracker.get_slot('permanent_driving_license_district_slot')
+        permanent_driving_license_location_slot = tracker.get_slot('permanent_driving_license_location_slot')
+        submit = f"""
+        indangamuntu: {id_}\n
+        nomero y'agateganyo: {temporary_driving_license_number_slot}\n
+        itariki yo gukoreraho: {permanent_driving_license_date_slot}\n
+        akarere ko gukoreramo: {permanent_driving_license_district_slot}\n
+        location yo gukoreramo: {permanent_driving_license_location_slot}
+        """
+        dispatcher.utter_message(text=submit)
         return []

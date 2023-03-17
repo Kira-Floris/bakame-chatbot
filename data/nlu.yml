@@ -363,27 +363,33 @@ nlu:
     - ndashaka kwiyandikisha kugira ngo mbone uruhushya rwo gutwara ibinyabiziga
     - Ni gute nakwiyandikisha kubona uruhushya rwo gukorera permis
 
+- regex: id
+  examples: |
+    - \d{3}
 - intent: national_id
   examples: |
-    - irangamuntu yanjye ni [1994800317030130125052010](id)
-    - indangamuntu yanjye ni [1994800317030130125052010](id)
-    - id yanjye ni [1994800317030130125052010](id)
-    - id ni [1994800317030130125052010](id)
-    - national id yanjye ni [1994800317030130125052010](id)
-    - [1994800317030130125052010](id) niyo id yanjye
-    - [1994800317030130125052010](id) niyo ndangamuntu yanjye
-    - imibare iri ku indangamuntu ni [1994800317030130125052010](id)
-    - imibare iri kuri id ni [1994800317030130125052010](id)
-    - indangamuntu yanjye ni [1199980126239080](id)
+    - irangamuntu yanjye ni [010](id)
+    - indangamuntu yanjye ni [199](id)
+    - id yanjye ni [321](id)
+    - id ni [234](id)
+    - national id yanjye ni [231](id)
+    - [222](id) niyo id yanjye
+    - [111](id) niyo ndangamuntu yanjye
+    - imibare iri ku indangamuntu ni [521](id)
+    - imibare iri kuri id ni [453](id)
+    - indangamuntu yanjye ni [231](id)
 
+- regex: temporary_driving_license_number_slot
+  examples: |
+    - [A-Z]{3}\d{3}
 - intent: temporary_driving_license_number
   examples: |
-    - nomero y'uruhushya rw'agateganyo yanjye ni [KJ3KJK13LKL24JK09023400](temporary_driving_license_number_slot)
-    - nomero ni [KJ3KJKIUHEW223L24JK08039400](temporary_driving_license_number_slot)
-    - iyi niyo numero yanjye [KJ3KUIWELKL24JK0890920](temporary_driving_license_number_slot)
-    - [KJ3KASDO9KL24J182019239400](temporary_driving_license_number_slot)
-    - [KJ3KJK13LKL24JK08039400](temporary_driving_license_number_slot) niyo nomero y'agateganyo yanjye
-    - nomero y'agateganyo ni [KJ3KJK13LKHK238039400](temporary_driving_license_number_slot)
+    - nomero y'uruhushya rw'agateganyo yanjye ni [KJK321](temporary_driving_license_number_slot)
+    - nomero ni [MNW543](temporary_driving_license_number_slot)
+    - iyi niyo numero yanjye [FDA536](temporary_driving_license_number_slot)
+    - [FDK523](temporary_driving_license_number_slot)
+    - [LOK904](temporary_driving_license_number_slot) niyo nomero y'agateganyo yanjye
+    - nomero y'agateganyo ni [REJ904](temporary_driving_license_number_slot)
 
 
 - intent: permanent_driving_license_date
@@ -401,18 +407,34 @@ nlu:
 
 - intent: permanent_driving_license_category
   examples: |
-    - icyiciro cy'uruhushya nifuza ni [A](permanent_driving_license_car_category_slot)
-    - ndashaka gukora ikiciro cya [B](permanent_driving_license_car_category_slot)
-    - kategori nifuza ni [A+](permanent_driving_license_car_category_slot)
-    - nzakora [A](permanent_driving_license_car_category_slot)
-    - [C](permanent_driving_license_car_category_slot)
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"A"}
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"B"}
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"C"}
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"D"}
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"E"}
+    - /permanent_driving_license_category{"permanent_driving_license_car_category_slot":"F"}
 
 - intent: permanent_driving_license_district
   examples: |
-    - ndashaka gukorera mu karere ka [kicukiro](permanent_driving_license_district_slot)
-    - akarere ka [nyarugenge](permanent_driving_license_district_slot)
-    - nzakorera muri [gasabo](permanent_driving_license_district_slot)
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Kicukiro"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Gasabo"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Nyarugenge"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Nyagatare"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Rusizi"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Kirehe"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Bugesera"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Rwamagana"}
+    - /permanent_driving_license_district{"permanent_driving_license_district_slot":"Nyaruguru"}
+
 
 - intent: permanent_driving_license_location
   examples: |
-    - [UMUGANDA Stadium NYH](permanent_driving_license_location_slot)
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"kicukiro 1"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"kicukiro 2"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"kicukiro 3"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"gasabo 1"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"gasabo 2"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"gasabo 3"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"nyarugenge 1"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"nyarugenge 2"}
+    - /permanent_driving_license_location{"permanent_driving_license_location_slot":"nyarugenge 3"}

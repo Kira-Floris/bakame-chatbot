@@ -11,9 +11,9 @@ intents:
 - national_id
 - temporary_driving_license_number
 - permanent_driving_license_date
-# - permanent_driving_license_category
-# - permanent_driving_license_district
-# - permanent_driving_license_location
+- permanent_driving_license_category
+- permanent_driving_license_district
+- permanent_driving_license_location
 - information_about_permanent_driving_license
 - registering_for_permanent_driving_license
 
@@ -23,7 +23,7 @@ entities:
 - permanent_driving_license_date_slot
 - permanent_driving_license_car_category_slot
 - permanent_driving_license_district_slot
-- permanent_driving_license_location
+- permanent_driving_license_location_slot
 
 slots:
   id:
@@ -44,25 +44,28 @@ slots:
   permanent_driving_license_car_category_slot:
     type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: permanent_driving_license_car_category_slot
   permanent_driving_license_district_slot:
     type: text
     mappings:
-    - type: custom
-  permanent_driving_license_location:
+    - type: from_entity
+      entity: permanent_driving_license_district_slot
+  permanent_driving_license_location_slot:
     type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: permanent_driving_license_location_slot
 
 forms:
   permanent_driving_license_form:
     required_slots:
-    # - id
-    # - temporary_driving_license_number_slot
+    - id
+    - temporary_driving_license_number_slot
     - permanent_driving_license_date_slot
     - permanent_driving_license_car_category_slot
     - permanent_driving_license_district_slot
-    - permanent_driving_license_location
+    - permanent_driving_license_location_slot
 
 responses:
   utter_greet:
@@ -94,8 +97,8 @@ responses:
   # - text: urashaka gukorera mu kahe karere
   # utter_ask_permanent_driving_license_location:
   # - text: hitamo aho uzayikorera
-  utter_submit_permanent_driving_license_form:
-  - text: indangamuntu yawe ni {indangamuntu}
+  # utter_submit_permanent_driving_license_form:
+  # - text: indangamuntu yawe ni {id}
 
 session_config:
   session_expiration_time: 60

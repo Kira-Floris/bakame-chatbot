@@ -1,0 +1,10 @@
+[
+  {
+    "name": "id",
+    "pattern": "\\d{3}"
+  },
+  {
+    "name": "temporary_driving_license_number_slot",
+    "pattern": "[A-Z]{3}\\d{3}"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-id",
+      "2": "I-id",
+      "3": "L-id",
+      "4": "U-id",
+      "5": "B-temporary_driving_license_number_slot",
+      "6": "I-temporary_driving_license_number_slot",
+      "7": "L-temporary_driving_license_number_slot",
+      "8": "U-temporary_driving_license_number_slot",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-id": 1,
+      "I-id": 2,
+      "L-id": 3,
+      "U-id": 4,
+      "B-temporary_driving_license_number_slot": 5,
+      "I-temporary_driving_license_number_slot": 6,
+      "L-temporary_driving_license_number_slot": 7,
+      "U-temporary_driving_license_number_slot": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

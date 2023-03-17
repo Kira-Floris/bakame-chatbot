@@ -7,7 +7,7 @@
         "serviceProvider":"RNP",
         "slots":{
             "permanent_driving_license_date_choices":["2023-01-23","2023-02-01","2023-02-15"],
-            "permanent_driving_license_car_category_choices":["A","B","C","D"],
+            "permanent_driving_license_car_category_choices":["A","B","C","D","E","F"],
             "permanent_driving_license_district_choices":[
                 {
                     "name":"Kicukiro",

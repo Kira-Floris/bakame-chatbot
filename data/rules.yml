@@ -46,4 +46,4 @@ rules:
   steps:
   - action: permanent_driving_license_form
   - active_loop: null
-  - action: utter_submit_permanent_driving_license_form
+  - action: action_submit_permanent_driving_license_form
