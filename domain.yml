@@ -112,4 +112,5 @@ actions:
 - action_ask_permanent_driving_license_car_category_slot
 - action_ask_permanent_driving_license_district_slot
 - action_ask_permanent_driving_license_location_slot
+- validate_permanent_driving_license_form
 - action_submit_permanent_driving_license_form

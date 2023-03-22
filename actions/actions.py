@@ -10,11 +10,14 @@
 from typing import Any, Text, Dict, List
 import json
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 # from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 
 irembo_information_json = 'actions/temporary_irembo_information.json'
+id_information_json = 'actions/national_id.json'
+temporary_license_information_json = 'actions/temporary_driving_license.json'
 notFoundMessage = 'Mutwihanganire, ayo makuru ntitubashije kuyabona.'
 
 class GetInformation:
@@ -43,11 +46,92 @@ class GetInformation:
         except:
             return notFoundMessage
         
+class GetId:
+    def __init__(self, id):
+        self.id = id
+        self.data = None
+        try:
+            with open(id_information_json, 'r') as f:
+                information = json.load(f)
+            self.data = information[self.id]
+            f.close()
+        except Exception as err:
+            self.data = None
+        if self.data:
+            self.name = self.data["name"]
+        else:
+            self.name = None
+        
+    def get_name(self):
+        return self.name
+    
+    def get_id(self):
+        return self.id
+    
+class GetTemporaryLicenseInfo:
+    def __init__(self, temporary_no):
+        self.temporary_no = temporary_no
+        self.data = None
+        try:
+            with open(temporary_license_information_json, 'r') as f:
+                information = json.load(f)
+            self.data = information[self.temporary_no]
+            f.close()
+        except Exception as err:
+            self.data = None
+        if self.data:
+            self.id = self.data["id"]
+        else:
+            self.id = None
+    
+    def get_temporary_no(self):
+        return self.temporary_no
+    
+    def get_id(self):
+        return self.id
+        
+        
 def buttonsToActionList(data, slot, entity):
     buttons = []
     for i in data:
         buttons.append({"title":i,"payload":"/"+slot+"{\""+entity+"\": \""+i+"\"}"})
     return buttons
+
+class ValidatePermanentDrivingLicenseForm(FormValidationAction):
+    def name(self)->Text:
+        return "validate_permanent_driving_license_form"
+    
+    def validate_id(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+        person = GetId(slot_value)
+        names = person.get_name()
+        print(names)
+        if not names:
+            dispatcher.utter_message(text="indangamuntu yawe ntitubashije kuyibona")
+            return {"id": None}
+        else:
+            dispatcher.utter_message(text=f"amazina yawe ni {names}")
+            return {"id": slot_value}
+        
+    def validate_temporary_driving_license_number_slot(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+        doc = GetTemporaryLicenseInfo(slot_value)
+        id_ = doc.get_id()
+        if not id_:
+            dispatcher.utter_message(text="nomero y'agateganyo ntabwo tuyizi")
+            return {"temporary_driving_license_number_slot": None}
+        else:
+            return {"temporary_driving_license_number_slot": slot_value}
     
 class ActionInformationAboutPermanentDrivingLicense(Action):
     def name(self):
