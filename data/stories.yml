@@ -13,3 +13,20 @@ stories:
   - action: utter_greet
   - intent: irembo_info
   - action: utter_irembo_info
+
+# - story: Information about permanent driving license and register
+  # steps:
+  # - intent: information_about_permanent_driving_license
+  # - action: action_information_about_permanent_driving_license
+  # - action: utter_ask_if_registering_permanent_driving_license
+  # - intent: affirm
+  # - action: permanent_driving_license_form
+  # - active_loop: permanent_driving_license_form
+
+# - story: Information about permanent driving license and not register
+  # steps:
+  # - intent: information_about_permanent_driving_license
+  # - action: action_information_about_permanent_driving_license
+  # - action: utter_ask_if_registering_permanent_driving_license
+  # - intent: deny
+  # - action: utter_just_ask

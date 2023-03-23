@@ -14,6 +14,7 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 # from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+from rasa_sdk.events import SlotSet
 
 irembo_information_json = 'actions/temporary_irembo_information.json'
 id_information_json = 'actions/national_id.json'
@@ -110,13 +111,13 @@ class ValidatePermanentDrivingLicenseForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         person = GetId(slot_value)
         names = person.get_name()
-        print(names)
         if not names:
             dispatcher.utter_message(text="indangamuntu yawe ntitubashije kuyibona")
             return {"id": None}
         else:
+            SlotSet("names", names)
             dispatcher.utter_message(text=f"amazina yawe ni {names}")
-            return {"id": slot_value}
+            return {"id": slot_value, "names": names}
         
     def validate_temporary_driving_license_number_slot(
         self,
@@ -203,8 +204,23 @@ class ActionPermanentDrivingLicenseLocation(Action):
                 locations.extend(item['locations'])
                 break
         buttons = buttonsToActionList(locations, "permanent_driving_license_location", "permanent_driving_license_location_slot")
-        dispatcher.utter_message(text="murashaka gukorera iyihe kategori y'imodoka",buttons=buttons)
+        dispatcher.utter_message(text=f"murashaka gukorera mu kahe gace ka {district_slot}",buttons=buttons)
         return []
+    
+class ActionSubmit(Action):
+    def name(self):
+        return 'action_submit_yes_or_no'
+    
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    )-> List[Dict[Text, Any]]:
+        buttons = [
+            {"payload":"/affirm","title":"yego"},
+            {"payload":"/deny","title":"oya"}
+        ]
     
 class ActionSubmitPermanentDrivingLicenseForm(Action):
     def name(self):
@@ -222,12 +238,15 @@ class ActionSubmitPermanentDrivingLicenseForm(Action):
         permanent_driving_license_car_category_slot = tracker.get_slot('permanent_driving_license_car_category_slot')
         permanent_driving_license_district_slot = tracker.get_slot('permanent_driving_license_district_slot')
         permanent_driving_license_location_slot = tracker.get_slot('permanent_driving_license_location_slot')
-        submit = f"""
-        indangamuntu: {id_}\n
-        nomero y'agateganyo: {temporary_driving_license_number_slot}\n
-        itariki yo gukoreraho: {permanent_driving_license_date_slot}\n
-        akarere ko gukoreramo: {permanent_driving_license_district_slot}\n
-        location yo gukoreramo: {permanent_driving_license_location_slot}
-        """
-        dispatcher.utter_message(text=submit)
+        
+        response = {
+            "id": id_,
+            "temporary driving license number": temporary_driving_license_number_slot,
+            "date": permanent_driving_license_date_slot,
+            "car category": permanent_driving_car_category_slot,
+            "district": permanent_driving_license_district_slot,
+            "location": permanent_driving_license_location_slot
+        }
+        
+        dispatcher.utter_message(json_message=response, text="Amakuru yawe twayakiriye")
         return []

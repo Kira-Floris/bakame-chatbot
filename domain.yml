@@ -1,7 +1,7 @@
 version: '3.1'
 intents:
-- affirm
 - bot_challenge
+- affirm
 - deny
 - goodbye
 - greet
@@ -26,6 +26,10 @@ entities:
 - permanent_driving_license_location_slot
 
 slots:
+  names:
+    type: text
+    mappings:
+    - type: custom
   id:
     type: text
     mappings:
@@ -69,7 +73,11 @@ forms:
 
 responses:
   utter_greet:
-  - text: Bite! Ni gute nagufasha?
+  - text: Murakaza neza kuri Kasuku. Ni gute nabafasha?
+  utter_just_ask:
+  - text: Ni gute nagufasha?
+  utter_submit:
+  - text: Turangize kwiyandikisha?
   utter_cheer_up:
   - text: Hano hari agafoto kagufasha!
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -85,27 +93,31 @@ responses:
   - text: Mutwihanganire, ushobora kubisubiramo mu bundi buryo?
   utter_irembo_info:
   - text: Irembo ni system yubatswe n'abanyarwanda kugira ifashe abaturage kubona service za leta byihuse. Andi makuru wayakura hano https://irembo.gov.rw/home/citizen/all_services
+    image: https://rtn.rw/wp-content/uploads/2019/07/irembo-300x83.png
+  utter_ask_if_registering_permanent_driving_license:
+  - text: Urashaka kwiyandikisha gukorera uruhushya rw'agateganyo?
   utter_ask_id:
   - text: Indangamuntu yawe ni iyihe
   utter_ask_temporary_driving_license_number_slot:
   - text: waduha numero y'uruhushya rw'agateganyo yawe
-  # utter_ask_permanent_driving_license_date_slot:
-  # - text: wahitamo itariki ushaka gukorera ikizamini
-  # utter_ask_permanent_driving_license_car_category_slot:
-  # - text: urashaka gukorera iyihe category y'ikizamini
-  # utter_ask_permanent_driving_license_district_slot:
-  # - text: urashaka gukorera mu kahe karere
-  # utter_ask_permanent_driving_license_location:
-  # - text: hitamo aho uzayikorera
-  # utter_submit_permanent_driving_license_form:
-  # - text: indangamuntu yawe ni {id}
+  utter_show_permanent_driving_license_submition:
+  - text: "Aya niyo makuru waduhaye {names}\n\n\
+  \ nomero y'indangamuntu: {id}\n\n\
+  \ nomero y'agatenganyo: {temporary_driving_license_number_slot}\n\n\
+  \ kategori ushaka gukora: {permanent_driving_license_car_category_slot}\n\n\
+  \ itariki yo gukoreraho: {permanent_driving_license_date_slot}\n\n\
+  \ akarere ko gukoreramo: {permanent_driving_license_district_slot}\n\n\
+  \ agace ko muri {permanent_driving_license_district_slot} ko gukoreramo: {permanent_driving_license_location_slot}"
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 actions:
+- utter_just_ask
+- utter_submit
 - action_information_about_permanent_driving_license
+- utter_ask_if_registering_permanent_driving_license
 - utter_ask_id
 - utter_ask_temporary_driving_license_number_slot
 - action_ask_permanent_driving_license_date_slot
