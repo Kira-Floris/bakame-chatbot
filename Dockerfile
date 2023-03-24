@@ -11,6 +11,8 @@ WORKDIR /app
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install rasa==3.0.5
 COPY . .
+EXPOSE 5005
+EXPOSE 5055
 # ADD config.yml config.yml
 # ADD domain.yml domain.yml
 # ADD credentials.yml credentials.yml

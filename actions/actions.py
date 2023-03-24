@@ -243,7 +243,7 @@ class ActionSubmitPermanentDrivingLicenseForm(Action):
             "id": id_,
             "temporary driving license number": temporary_driving_license_number_slot,
             "date": permanent_driving_license_date_slot,
-            "car category": permanent_driving_car_category_slot,
+            "car category": permanent_driving_license_car_category_slot,
             "district": permanent_driving_license_district_slot,
             "location": permanent_driving_license_location_slot
         }
