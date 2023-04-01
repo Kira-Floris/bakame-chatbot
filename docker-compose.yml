@@ -7,14 +7,14 @@ services:
   #   networks:
   #   - all
   rasa-server:
-    image: rasa-bot:latest
-    working_dir: /app
+    # image: rasa-bot:latest
+    # working_dir: /app
     build: "./"
     restart: always
-    volumes:
-    - ./actions:/app/actions
-    - ./data:/app/data
-    command: bash -c "rm -rf models/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
+    # volumes:
+    # - ./actions:/app/actions
+    # - ./data:/app/data
+    command: bash -c "rasa train --data /app && rasa run --enable-api --cors \"*\" --debug"
     ports:
     - '5005:5005'
     # public: t
