@@ -14,7 +14,7 @@ services:
     # volumes:
     # - ./actions:/app/actions
     # - ./data:/app/data
-    command: bash -c "rasa train --data /app && rasa run --enable-api --cors \"*\" --debug"
+    command: bash -c "rasa train && rasa run --enable-api --cors \"*\" --debug"
     ports:
     - '5005:5005'
     # public: t
