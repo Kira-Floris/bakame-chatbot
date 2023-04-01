@@ -13,7 +13,7 @@ RUN pip install rasa==3.4.2
 COPY . .
 EXPOSE 5005
 EXPOSE 5055
-# ADD config.yml config.yml
-# ADD domain.yml domain.yml
-# ADD credentials.yml credentials.yml
-# ADD endpoints.yml endpoints.yml
+ADD config.yml config.yml
+ADD domain.yml domain.yml
+ADD credentials.yml credentials.yml
+ADD endpoints.yml endpoints.yml
