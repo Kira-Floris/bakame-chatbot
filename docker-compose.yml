@@ -22,12 +22,12 @@ services:
     - all
   rasa-actions:
     build: "./"
-    image: rasa-bot:latest
+    # image: rasa-bot:latest
     restart: always
-    working_dir: /app/actions
-    volumes:
-    - ./actions:/app/actions
-    - ./utils:/app/utils
+    # working_dir: /app/actions
+    # volumes:
+    # - ./actions:/app/actions
+    # - ./utils:/app/utils
     command: bash -c "rasa run actions --debug"
     ports:
     - '5055:5055'

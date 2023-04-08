@@ -9,7 +9,7 @@ RUN apt-get update \
         vim
 WORKDIR /app
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install rasa==3.4.2
+RUN pip install rasa==3.4.2 websockets==10.0
 COPY . .
 EXPOSE 5005
 EXPOSE 5055
