@@ -14,7 +14,7 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 # from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, AllSlotsReset
 
 irembo_information_json = 'actions/temporary_irembo_information.json'
 id_information_json = 'actions/national_id.json'
@@ -133,7 +133,22 @@ class ValidatePermanentDrivingLicenseForm(FormValidationAction):
             return {"temporary_driving_license_number_slot": None}
         else:
             return {"temporary_driving_license_number_slot": slot_value}
+        
     
+def ActionResetAllSlots(Action):
+    def name(self):
+        return "action_reset_all_slots"
+    
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    )-> List[Dict[Text, Any]]:
+        dispatcher.utter_message('Amakuru yawe yose yakuwemo')
+        return [AllSlotsReset()]
+    
+        
 class ActionInformationAboutPermanentDrivingLicense(Action):
     def name(self):
         return 'action_information_about_permanent_driving_license'

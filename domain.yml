@@ -73,7 +73,7 @@ forms:
 
 responses:
   utter_greet:
-  - text: Murakaza neza kuri Kasuku. Ni gute nabafasha?
+  - text: Murakaza neza kuri Bakame. Ni gute nabafasha?
   utter_just_ask:
   - text: Ni gute nagufasha?
   utter_submit:
@@ -116,6 +116,7 @@ session_config:
 actions:
 - utter_just_ask
 - utter_submit
+- action_reset_all_slots
 - action_information_about_permanent_driving_license
 - utter_ask_if_registering_permanent_driving_license
 - utter_ask_id

@@ -331,6 +331,15 @@ nlu:
     - ndashaka guhindura amakuru
     - dusibe byose
     - duhagarike kuzuza
+    - turekere kuzuza form
+    - dusubiremo byose
+    - stop
+    - kurekera
+    - rekera aho
+    - sinyishaka kuzuza ayo makuru
+    - sinyishaka kuzuza form
+    - ibyo birahagije
+    - turekere
     
 - intent: irembo_info
   examples: |
