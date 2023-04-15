@@ -22,13 +22,10 @@ rules:
   - intent: nlu_fallback
   - action: utter_please_rephrase
 
-- rule: change your mind about filling the form
-  steps:
-  - intent: stop_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: action_reset_all_slots
+# - rule: change your mind about filling the form
+  # steps:
+  # - intent: stop_form
+  # - action: action_reset_all_slots
 
 - rule: Information about Permanent Driving License
   steps:

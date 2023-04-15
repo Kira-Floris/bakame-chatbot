@@ -145,8 +145,12 @@ def ActionResetAllSlots(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     )-> List[Dict[Text, Any]]:
+        all_slots = tracker.slots
+        # for slot_name, slot_value in all_slots.items():
+        #     SlotSet(slot_name, None)
+        tracker.slots.clear()
         dispatcher.utter_message('Amakuru yawe yose yakuwemo')
-        return [AllSlotsReset()]
+        return []
     
         
 class ActionInformationAboutPermanentDrivingLicense(Action):
